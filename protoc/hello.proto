@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+option go_package = "./";
+
+message HelloRequest{
+    string SomeString = 1;
+}
+
+message HelloResponse{
+    string Reply = 1;
+}
+
+service Example{
+    //Unary Operation
+    // rpc ServerReply (HelloRequest) returns (HelloResponse);
+
+    //Client Streaming
+    // rpc ServerReply (stream HelloRequest) returns (HelloResponse);
+
+    //Serever Streaming
+    // rpc ServerReply (HelloRequest) returns (stream HelloResponse);
+
+    //Bi-directional streaming
+    rpc ServerReply (stream HelloRequest) returns (stream HelloResponse);
+}
